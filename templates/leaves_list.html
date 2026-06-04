@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Congés{% endblock %}
+{% block content %}
+<h2>Congés</h2>
+<div class="text-right">
+    <a class="btn" href="{{ url_for('create_leave') }}">Demander un congé</a>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Employé</th>
+            <th>Type</th>
+            <th>Début</th>
+            <th>Fin</th>
+            <th>Statut</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for l in leaves %}
+        <tr>
+            <td>{{ l.id }}</td>
+            <td>{{ l.employee.first_name }} {{ l.employee.last_name }}</td>
+            <td>{{ l.leave_type }}</td>
+            <td>{{ l.start_date }}</td>
+            <td>{{ l.end_date }}</td>
+            <td>{{ l.status }}</td>
+            <td>
+                {% if current_user.is_admin() or current_user.is_manager() %}
+                    {% if l.status == 'PENDING' %}
+                    <a class="btn" href="{{ url_for('approve_leave', leave_id=l.id) }}">Approuver</a>
+                    <a class="btn btn-danger" href="{{ url_for('reject_leave', leave_id=l.id) }}">Rejeter</a>
+                    {% endif %}
+                {% endif %}
+                {% if current_user.is_admin() or l.employee.user_id == current_user.id %}
+                <a class="btn" href="{{ url_for('edit_leave', leave_id=l.id) }}">Modifier</a>
+                <a class="btn btn-danger" href="{{ url_for('delete_leave', leave_id=l.id) }}">Supprimer</a>
+                {% endif %}
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Congé{% endblock %}
+{% block content %}
+<h2>{{ title }}</h2>
+<form method="post">
+    {{ form.hidden_tag() }}
+    <label>Employé</label>
+    {{ form.employee_id() }}
+    <label>Type de congé</label>
+    {{ form.leave_type() }}
+    <label>Date de début</label>
+    {{ form.start_date() }}
+    <label>Date de fin</label>
+    {{ form.end_date() }}
+    <label>Statut</label>
+    {{ form.status() }}
+    {{ form.submit(class_="btn") }}
+</form>
+{% endblock %}

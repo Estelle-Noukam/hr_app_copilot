@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>{{ title }}</h1>
+
+<form method="post">
+  {{ form.hidden_tag() }}
+
+  <p>
+    {{ form.name.label }}<br>
+    {{ form.name(class="input") }}
+  </p>
+
+  <button class="btn" type="submit">Enregistrer</button>
+</form>
+{% endblock %}

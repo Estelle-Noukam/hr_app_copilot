@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Département{% endblock %}
+{% block content %}
+<h2>{{ title }}</h2>
+<form method="post">
+    {{ form.hidden_tag() }}
+    <label>Nom</label>
+    {{ form.name() }}
+    <label>Description</label>
+    {{ form.description() }}
+    {{ form.submit(class_="btn") }}
+</form>
+{% endblock %}

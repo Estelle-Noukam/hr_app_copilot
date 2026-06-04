@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Employés{% endblock %}
+{% block content %}
+<h2>Employés</h2>
+<div class="text-right">
+    {% if current_user.is_admin() or current_user.is_manager() %}
+    <a class="btn" href="{{ url_for('create_employee') }}">Créer un employé</a>
+    {% endif %}
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Département</th>
+            <th>Poste</th>
+            <th>Manager</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for e in employees %}
+        <tr>
+            <td>{{ e.id }}</td>
+            <td>{{ e.first_name }} {{ e.last_name }}</td>
+            <td>{{ e.department.name if e.department else '' }}</td>
+            <td>{{ e.position }}</td>
+            <td>{{ e.manager_employee.first_name ~ ' ' ~ e.manager_employee.last_name if e.manager_employee else '' }}</td>
+            <td>
+                <a class="btn" href="{{ url_for('edit_employee', employee_id=e.id) }}">Modifier</a>
+                {% if current_user.is_admin() %}
+                <a class="btn btn-danger" href="{{ url_for('delete_employee', employee_id=e.id) }}">Supprimer</a>
+                {% endif %}
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

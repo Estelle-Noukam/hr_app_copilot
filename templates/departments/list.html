@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>Départements</h1>
+
+<a class="btn" href="{{ url_for('departments.create') }}">Créer un département</a>
+
+<table>
+  <tr><th>Nom</th><th>Actions</th></tr>
+  {% for d in departments %}
+  <tr>
+    <td>{{ d.name }}</td>
+    <td>
+      <a class="btn" href="{{ url_for('departments.edit', dept_id=d.id) }}">Modifier</a>
+      <form action="{{ url_for('departments.delete', dept_id=d.id) }}" method="post" style="display:inline;">
+        <button class="btn" type="submit">Supprimer</button>
+      </form>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

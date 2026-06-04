@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>HR App</title>
+</head>
+<body>
+
+<nav>
+    <a href="{{ url_for('index') }}">Accueil</a>
+    <a href="{{ url_for('departments.list') }}">Départements</a>
+    <a href="{{ url_for('employees.list') }}">Employés</a>
+    <a href="{{ url_for('leaves.list') }}">Congés</a>
+    <a href="{{ url_for('absences.list') }}">Absences</a>
+    <a href="{{ url_for('documents.list') }}">Documents</a>
+</nav>
+
+<hr>
+
+{% block content %}
+{% endblock %}
+
+</body>
+</html>

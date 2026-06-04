@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Absences{% endblock %}
+{% block content %}
+<h2>Absences</h2>
+<div class="text-right">
+    <a class="btn" href="{{ url_for('create_absence') }}">Enregistrer une absence</a>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Employé</th>
+            <th>Date</th>
+            <th>Raison</th>
+            <th>Justifiée</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for a in absences %}
+        <tr>
+            <td>{{ a.id }}</td>
+            <td>{{ a.employee.first_name }} {{ a.employee.last_name }}</td>
+            <td>{{ a.date }}</td>
+            <td>{{ a.reason }}</td>
+            <td>{{ 'Oui' if a.justified else 'Non' }}</td>
+            <td>
+                <a class="btn" href="{{ url_for('edit_absence', absence_id=a.id) }}">Modifier</a>
+                <a class="btn btn-danger" href="{{ url_for('delete_absence', absence_id=a.id) }}">Supprimer</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

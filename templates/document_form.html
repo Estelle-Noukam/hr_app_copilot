@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Document{% endblock %}
+{% block content %}
+<h2>{{ title }}</h2>
+<form method="post">
+    {{ form.hidden_tag() }}
+    <label>Employé</label>
+    {{ form.employee_id() }}
+    <label>Nom du document</label>
+    {{ form.name() }}
+    <label>Type</label>
+    {{ form.doc_type() }}
+    <label>Chemin</label>
+    {{ form.path() }}
+    {{ form.submit(class_="btn") }}
+</form>
+{% endblock %}
