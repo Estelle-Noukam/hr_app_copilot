@@ -43,20 +43,20 @@ Elle permet de gérer :
 
 hr_app/
 │
-├── app.py                # Application principale Flask
-├── models.py             # Modèles SQLAlchemy
-├── models_user.py        # Modèle utilisateur (auth)
-├── forms.py              # Formulaires Flask-WTF
+├── app.py             
+├── models.py             
+├── models_user.py      
+├── forms.py           
 │
-├── routes/               # Blueprints
+├── routes/             
 │   ├── employees.py
 │   ├── departments.py
 │   ├── leaves.py
 │   ├── absences.py
 │   ├── documents.py
-│   └── (reviews.py)      # Optionnel
+│   └── (reviews.py)      
 │
-├── templates/            # Templates HTML (Jinja2)
+├── templates/            
 │   ├── layout.html
 │   ├── index.html
 │   ├── employees/
@@ -65,11 +65,11 @@ hr_app/
 │   ├── absences/
 │   └── documents/
 │
-├── static/               # CSS, JS, images
+├── static/             
 │   └── style.css
 │
-├── requirements.txt      # Dépendances Python
-└── docker-compose.yml    # Optionnel
+├── requirements.txt      
+└── docker-compose.yml   
 
 Code
 
