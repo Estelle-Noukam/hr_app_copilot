@@ -39,41 +39,6 @@ Elle permet de gérer :
 - Lister les documents
 
 
-## 🗂️ Structure du projet
-
-hr_app/
-│
-├── app.py             
-├── models.py             
-├── models_user.py      
-├── forms.py           
-│
-├── routes/             
-│   ├── employees.py
-│   ├── departments.py
-│   ├── leaves.py
-│   ├── absences.py
-│   ├── documents.py
-│   └── (reviews.py)      
-│
-├── templates/            
-│   ├── layout.html
-│   ├── index.html
-│   ├── employees/
-│   ├── departments/
-│   ├── leaves/
-│   ├── absences/
-│   └── documents/
-│
-├── static/             
-│   └── style.css
-│
-├── requirements.txt      
-└── docker-compose.yml   
-
-Code
-
-
 ## 🛠️ Installation
 
 ### 1. Cloner le projet
